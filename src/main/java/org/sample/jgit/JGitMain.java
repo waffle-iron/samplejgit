@@ -1,6 +1,5 @@
 package org.sample.jgit;
 
-
 import org.kohsuke.args4j.Argument;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
@@ -16,26 +15,26 @@ import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.api.Status;
 /**
- * Hello world!
+ * 
  *
  */
 public class JGitMain 
 {
     private static final String REMOTE_URL = "https://github.com/takehiroman/samplejgit.git";
 
-    @Option(name= "-ini", aliases= "--init", usage= "print git init")
+    @Option(name= "-init",  usage= "print git init")
     private boolean initFlag;
 
-    @Option(name= "-add", aliases= "--add", usage= "print git add")
+    @Option(name= "-add",  usage= "print git add")
     private boolean addFlag;
 
-    @Option(name= "-cmt", aliases= "--commit", usage= "print git commit")
+    @Option(name= "-commit",  usage= "print git commit")
     private boolean commitFlag;
 
-    @Option(name= "-sts", aliases= "--status", usage= "print git status")
+    @Option(name= "-status",  usage= "print git status")
     private boolean statusFlag;
 
-    @Option(name= "-cln", aliases= "--clone", usage= "print git clone")
+    @Option(name= "-clone",  usage= "print git clone")
     private boolean cloneFlag;
 
     public static void main(String[] args)throws IOException, GitAPIException {
@@ -95,9 +94,8 @@ public class JGitMain
         if(jgit.cloneFlag){
                  Git result = Git.cloneRepository()
                                  .setURI(REMOTE_URL)
-                                 .setDirectory(new File("testrepo"))
+                                 .setDirectory(new File("samplejgit"))
                                  .call();
-
         }
     }
 }
