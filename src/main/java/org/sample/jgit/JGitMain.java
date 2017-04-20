@@ -57,7 +57,6 @@ public class JGitMain
         if(jgit.initFlag){
             		Git.init()
 		               .setDirectory(new File("myrepo")) /*myrepoというディレクトリ作成*/
-		               .setBare(false)
 		               .call();
         }
 
@@ -70,7 +69,7 @@ public class JGitMain
 
         if(jgit.commitFlag){
                 git.commit()
-                   .setMessage("コミットする")
+                   .setMessage("initial commit")
                    .call();
         }
 
