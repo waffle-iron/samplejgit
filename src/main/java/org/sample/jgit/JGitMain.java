@@ -14,10 +14,12 @@ import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.api.Status;
+
 /**
  * 
  *
  */
+
 public class JGitMain 
 {
     private static final String REMOTE_URL = "https://github.com/takehiroman/samplejgit.git";
@@ -30,6 +32,9 @@ public class JGitMain
 
     @Option(name= "-commit",  usage= "print git commit")
     private boolean commitFlag;
+
+    @Argument(metaVar = "COMMENT")
+    private String comment;
 
     @Option(name= "-status",  usage= "print git status")
     private boolean statusFlag;
@@ -69,7 +74,7 @@ public class JGitMain
 
         if(jgit.commitFlag){
                 git.commit()
-                   .setMessage("initial commit")
+                   .setMessage(jgit.comment)
                    .call();
         }
 
