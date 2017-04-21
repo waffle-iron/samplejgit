@@ -22,8 +22,6 @@ import org.eclipse.jgit.api.Status;
 
 public class JGitMain 
 {
-    private static final String REMOTE_URL = "https://github.com/takehiroman/samplejgit.git";
-
     @Option(name= "-init",  usage= "print git init")
     private boolean initFlag;
 
@@ -33,8 +31,11 @@ public class JGitMain
     @Option(name= "-commit",  usage= "print git commit")
     private boolean commitFlag;
 
-    @Argument(metaVar = "COMMENT")
-    private String comment;
+    @Option(name= "-m", metaVar = "MESSAGE")
+    private String message;
+
+    @Argument( metaVar = "CLONE")
+    private String cloneRepo;
 
     @Option(name= "-status",  usage= "print git status")
     private boolean statusFlag;
@@ -74,7 +75,7 @@ public class JGitMain
 
         if(jgit.commitFlag){
                 git.commit()
-                   .setMessage(jgit.comment)
+                   .setMessage(jgit.message)
                    .call();
         }
 
@@ -97,8 +98,8 @@ public class JGitMain
 
         if(jgit.cloneFlag){
                  Git result = Git.cloneRepository()
-                                 .setURI(REMOTE_URL)
-                                 .setDirectory(new File("samplejgit"))
+                                 .setURI(jgit.cloneRepo)
+                                 .setDirectory(new File("CloneRepo"))
                                  .call();
         }
     }
