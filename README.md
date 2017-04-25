@@ -1,30 +1,31 @@
 # samplejgit
 
 
-jgitを使ったサンプルのコマンドラインツールです
+JGitを使ったサンプルのコマンドラインツールです
 
 ### Usage
 
-ビルド
+ビルドツール
 Maven 3.1.1
 ```
 mvn package
 ```
 
 実行方法
-***
+```
 java -jar ./target/samplejgit-1.0-SNAPSHOT.jar COMMAND
-***
+```
 COMMAND一覧
 * -init
   - myrepoというフォルダを作成し，
   - git init
 
 * -add
-  - myrepo の変更を全てステージングする
+  - myrepo内の変更を全てステージングする
   - git add .
 
 * -commit -m MESSAGE
+  - myrepoフォルダ内をコミットする
   - git commit -m MESSAGE
 
 * -status
